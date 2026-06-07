@@ -1,305 +1,192 @@
-# SDTM to ADaM Clinical Programming Project
+# 🧬 SDTM → ADaM Clinical Programming Project
 
-## Clinical Trial Data Processing and Analysis Using SAS
-
-### Overview
-
-This project demonstrates an end-to-end clinical programming workflow using SAS Studio, following industry-standard concepts commonly used in pharmaceutical and biotechnology clinical trials.
-
-The workflow begins with SDTM-style clinical trial datasets and progresses through data cleaning, validation, quality control, subject-level analysis dataset creation (ADSL), and clinical reporting.
-
-The objective of this project is to simulate the responsibilities of a Clinical SAS Programmer by applying standard clinical data management and analysis techniques to trial data.
+![SAS](https://img.shields.io/badge/SAS-Clinical%20Programming-blue)
+![ADaM](https://img.shields.io/badge/CDISC-ADaM-green)
+![SDTM](https://img.shields.io/badge/CDISC-SDTM-orange)
+![Status](https://img.shields.io/badge/Project-Completed-success)
 
 ---
 
-## Project Objectives
+## 📊 Project Snapshot
 
-* Import SDTM clinical datasets into SAS
-* Perform data cleaning and standardization
-* Execute validation and quality control checks
-* Detect duplicate and missing records
-* Create an ADaM-style subject-level analysis dataset (ADSL)
-* Derive analysis variables and population flags
-* Generate demographic, safety, laboratory, and vital sign reports
-* Produce submission-ready outputs for downstream statistical analysis
-
----
-
-## Clinical Domains Included
-
-| Domain | Description        |
-| ------ | ------------------ |
-| DM     | Demographics       |
-| AE     | Adverse Events     |
-| DS     | Disposition        |
-| LB     | Laboratory Results |
-| VS     | Vital Signs        |
+| Metric | Value |
+|----------|---------|
+| Subjects | 306 |
+| Safety Population | 254 |
+| Screen Failures | 52 |
+| AE Records | 1,191 |
+| Lab Records | 58,700 |
+| Vital Sign Records | 29,635 |
 
 ---
 
-## Project Architecture
+## 🏗 Clinical Programming Workflow
 
 ```text
-Raw SDTM Data
-     │
-     ▼
+Raw SDTM Domains
+│
+├── DM (Demographics)
+├── AE (Adverse Events)
+├── DS (Disposition)
+├── LB (Laboratory)
+└── VS (Vital Signs)
+
+        ↓
+
 01_import.sas
-     │
-     ▼
+
+        ↓
+
 02_clean.sas
-     │
-     ▼
+
+        ↓
+
 03_validation.sas
-     │
-     ▼
+
+        ↓
+
 04_analysis_adam.sas
-     │
-     ▼
+
+        ↓
+
 ADSL Dataset
-     │
-     ▼
+
+        ↓
+
 05_reports.sas
-     │
-     ▼
-Clinical Study Report PDF
+
+        ↓
+
+Clinical Study Report (PDF)
 ```
 
 ---
 
-## SAS Programs
+## 🎯 Project Objectives
 
-### 01_import.sas
+✔ Import SDTM clinical datasets
 
-Imports SDTM datasets into SAS.
+✔ Perform cleaning and standardization
 
-Key Activities:
+✔ Conduct validation and QC checks
 
-* Dataset ingestion
-* Dataset verification
-* Initial record review
+✔ Create ADaM-style ADSL
 
----
+✔ Derive analysis variables
 
-### 02_clean.sas
+✔ Generate clinical reports
 
-Performs data cleaning and standardization.
-
-Key Activities:
-
-* Character value standardization
-* Missing value review
-* Data quality checks
-* Domain-level preparation
-
-Domains Processed:
-
-* AE
-* DM
-* DS
-* LB
-* VS
+✔ Simulate real-world Clinical SAS Programmer workflow
 
 ---
 
-### 03_validation.sas
+## 📁 Repository Structure
 
-Performs validation and quality control procedures.
-
-Quality Checks:
-
-* Dataset structure review
-* Record count verification
-* Duplicate subject detection
-* Missing data assessment
-* Demographic consistency checks
-* Adverse event validation
-* Laboratory value review
-* Vital sign review
-
----
-
-### 04_analysis_adam.sas
-
-Creates an ADaM-style ADSL dataset.
-
-Derived Variables:
-
-| Variable | Description                     |
-| -------- | ------------------------------- |
-| AGEGR1   | Age Category (<65 / >=65)       |
-| SAFFL    | Safety Population Flag          |
-| ITTFL    | Intent-to-Treat Population Flag |
-
-Quality Control:
-
-* One record per subject
-* Subject uniqueness verification
-* Population flag validation
+```text
+clinical-programming-project/
+│
+├── data/
+│   ├── ae.csv
+│   ├── dm.csv
+│   ├── ds.csv
+│   ├── lb.csv
+│   └── vs.csv
+│
+├── sas/
+│   ├── 01_import.sas
+│   ├── 02_clean.sas
+│   ├── 03_validation.sas
+│   ├── 04_analysis_adam.sas
+│   └── 05_reports.sas
+│
+├── output/
+│   └── clinical_study_reports.pdf
+│
+└── README.md
+```
 
 ---
 
-### 05_reports.sas
+## 🧪 Clinical Domains
 
-Generates clinical study outputs and summary reports.
-
-Outputs Include:
-
-* Demographic summaries
-* Treatment arm distributions
-* Safety population summaries
-* Adverse event summaries
-* Laboratory summaries
-* Vital sign summaries
-* Subject listings
+| Domain | Description |
+|----------|------------|
+| DM | Demographics |
+| AE | Adverse Events |
+| DS | Disposition |
+| LB | Laboratory |
+| VS | Vital Signs |
 
 ---
 
-## Key Study Results
+## 📈 Key Outputs
 
-### Subject Population
+### ADSL Dataset
 
-| Metric            | Count |
-| ----------------- | ----- |
-| Total Subjects    | 306   |
-| Unique Subjects   | 306   |
-| Safety Population | 254   |
-| Screen Failures   | 52    |
-
----
-
-### Treatment Distribution
-
-| Treatment Arm        | Subjects |
-| -------------------- | -------- |
-| Placebo              | 86       |
-| Xanomeline Low Dose  | 84       |
-| Xanomeline High Dose | 84       |
-| Screen Failure       | 52       |
+| Variable | Description |
+|-----------|------------|
+| AGEGR1 | Age Group |
+| SAFFL | Safety Flag |
+| ITTFL | Intent-To-Treat Flag |
 
 ---
+
+## 📋 Results Summary
 
 ### Demographics
 
-* Female Subjects: 179 (58.5%)
-* Male Subjects: 127 (41.5%)
+| Category | Count |
+|-----------|--------|
+| Female | 179 |
+| Male | 127 |
 
-Age Groups:
+### Treatment Arms
 
-* <65 Years: 42 Subjects
-* ≥65 Years: 264 Subjects
+| Arm | Subjects |
+|-------|-----------|
+| Placebo | 86 |
+| Xanomeline Low Dose | 84 |
+| Xanomeline High Dose | 84 |
+| Screen Failure | 52 |
 
----
+### Adverse Events
 
-### Adverse Event Summary
-
-Total Adverse Events:
-
-* Mild: 770
-* Moderate: 378
-* Severe: 43
-
-Total AE Records Reviewed:
-
-* 1,191
-
----
-
-### Laboratory Data Summary
-
-Laboratory Records:
-
-* 58,700 observations
-
-Highlighted Tests:
-
-* ALT
-* AST
-
-Summary statistics generated:
-
-* Mean
-* Median
-* Minimum
-* Maximum
-* Missing counts
+| Severity | Count |
+|------------|--------|
+| Mild | 770 |
+| Moderate | 378 |
+| Severe | 43 |
 
 ---
 
-### Vital Signs Summary
+## 🛠 Technologies
 
-Vital Sign Records:
-
-* 29,635 observations
-
-Parameters Reviewed:
-
-* Systolic Blood Pressure
-* Diastolic Blood Pressure
-* Pulse Rate
-* Temperature
-* Height
-* Weight
+- SAS Studio
+- Base SAS
+- PROC SQL
+- PROC FREQ
+- PROC MEANS
+- PROC SORT
+- DATA Step Programming
 
 ---
 
-## Technologies Used
+## 🎓 Skills Demonstrated
 
-* SAS Studio
-* Base SAS
-* PROC SQL
-* PROC FREQ
-* PROC MEANS
-* PROC SORT
-* DATA Step Programming
-* Clinical Data Standards Concepts
-
----
-
-## Clinical Programming Skills Demonstrated
-
-### SDTM Processing
-
-* Clinical domain integration
-* Subject-level data review
-
-### Data Management
-
-* Data cleaning
-* Standardization
-* Missing data handling
-
-### Quality Control
-
-* Duplicate detection
-* Validation checks
-* Consistency review
-
-### ADaM Development
-
-* Subject-level dataset creation
-* Analysis variable derivation
-* Population flag generation
-
-### Clinical Reporting
-
-* Demographic summaries
-* Safety summaries
-* Laboratory reporting
-* Vital sign reporting
+- Clinical Data Management
+- SDTM Processing
+- ADaM Development
+- Data Validation
+- Quality Control
+- Clinical Reporting
+- Statistical Programming
 
 ---
 
-## Output Deliverables
+## 👩‍💻 Author
 
-* Cleaned Clinical Datasets
-* Validation Reports
-* ADaM-Style ADSL Dataset
-* Clinical Study Report (PDF)
+**Sneha Suresh**
 
----
+M.Sc. Bioinformatics
 
-## Author
-
-Sneha Suresh
-
-Clinical Programming • SAS • Clinical Data Analysis • Bioinformatics
+Aspiring Clinical SAS Programmer | Clinical Data Analyst
