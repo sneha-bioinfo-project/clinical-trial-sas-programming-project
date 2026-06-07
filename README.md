@@ -1,12 +1,5 @@
 # 🧬 SDTM → ADaM Clinical Programming Project
 
-![SAS](https://img.shields.io/badge/SAS-Clinical%20Programming-blue)
-![ADaM](https://img.shields.io/badge/CDISC-ADaM-green)
-![SDTM](https://img.shields.io/badge/CDISC-SDTM-orange)
-![Status](https://img.shields.io/badge/Project-Completed-success)
-
----
-
 ## 📊 Project Snapshot
 
 | Metric | Value |
